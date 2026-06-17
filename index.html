@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<script>document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>marketing skills — the full library, always current</title>
+<meta name="description" content="A live overview of the marketingskills library by Corey Haines: 44 marketing skills for AI agents — SEO, CRO, copy, paid, growth, GTM, and strategy — grouped, versioned, and auto-updated.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0e16;--bg-2:#0d1320;--panel:#121b2b;--panel-2:#16213450;
+  --line:#22304a;--line-soft:#1a2638;
+  --ink:#eaf1fb;--ink-soft:#aab8cf;--ink-dim:#7186a3;
+  --accent:#6ea8ff;
+  /* eight category accents */
+  --foundation:#a78bfa;--seo:#60a5fa;--cro:#22d3ee;--copy:#34d399;
+  --paid:#fbbf24;--growth:#f472b6;--gtm:#fb923c;--strategy:#818cf8;
+  --radius:18px;--radius-sm:12px;--maxw:1180px;
+  --shadow:0 18px 50px -22px rgba(0,0,0,.8);
+  --font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--font);background:var(--bg);color:var(--ink);line-height:1.6;letter-spacing:-.011em;overflow-x:hidden;
+  background-image:
+    radial-gradient(900px 600px at 12% -8%, rgba(110,168,255,.10), transparent 60%),
+    radial-gradient(820px 560px at 92% 2%, rgba(244,114,182,.08), transparent 60%),
+    radial-gradient(1000px 700px at 50% 120%, rgba(52,211,153,.06), transparent 55%);
+  background-attachment:fixed;
+}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{line-height:1.1;letter-spacing:-.03em;font-weight:800}
+.eyebrow{font:600 12.5px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--ink-dim);display:inline-flex;align-items:center;gap:9px;margin-bottom:16px}
+.eyebrow::before{content:"";width:26px;height:1.5px;background:linear-gradient(90deg,var(--accent),transparent)}
+.lead{color:var(--ink-soft);font-size:1.06rem;max-width:66ch}
+.mono{font-family:var(--mono)}
+code{font-family:var(--mono);color:var(--accent)}
+.grad{background:linear-gradient(100deg,#a78bfa,#60a5fa 28%,#22d3ee 46%,#34d399 64%,#fbbf24 82%,#f472b6);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:60;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:rgba(10,14,22,.72);border-bottom:1px solid var(--line-soft)}
+.nav-inner{max-width:var(--maxw);margin:0 auto;padding:13px 28px;display:flex;align-items:center;gap:22px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:-.04em;font-size:1.12rem}
+.brand .mk{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;background:linear-gradient(140deg,#34d39922,#a78bfa22);border:1px solid var(--line);font:800 16px/1 var(--mono);color:var(--copy)}
+.nav-links{margin-left:auto;display:flex;gap:4px;flex-wrap:wrap}
+.nav-links a{font-size:13.5px;color:var(--ink-soft);padding:7px 12px;border-radius:9px;font-weight:500;transition:.18s}
+.nav-links a:hover{color:var(--ink);background:var(--panel-2)}
+.nav-links a.hot{color:var(--accent)}
+.pill-ver{font:600 12px/1 var(--mono);color:var(--copy);border:1px solid #1f3b32;background:#0f2019;padding:6px 10px;border-radius:999px}
+@media(max-width:980px){.nav-links{display:none}}
+
+/* hero */
+.hero{padding:84px 0 52px;text-align:center}
+.hero h1{font-size:clamp(2.6rem,7.2vw,5rem);font-weight:900;letter-spacing:-.05em}
+.hero .sub{font-size:clamp(1.05rem,2.5vw,1.5rem);font-weight:600;margin-top:12px;letter-spacing:-.025em;color:var(--ink-soft)}
+.hero .desc{color:var(--ink-soft);max-width:60ch;margin:18px auto 0;font-size:1.05rem}
+.hero .cta{margin-top:30px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{font:600 14px/1 var(--font);padding:13px 20px;border-radius:11px;border:1px solid var(--line);background:var(--panel);color:var(--ink);transition:.18s;display:inline-flex;align-items:center;gap:8px;cursor:pointer}
+.btn:hover{border-color:var(--accent);transform:translateY(-2px)}
+.btn.pri{background:linear-gradient(120deg,#34d39922,#60a5fa22);border-color:#2b517a;color:#fff}
+/* what's-new banner (auto-updated on new release) */
+.whatsnew{display:flex;align-items:center;gap:12px;margin:24px auto 0;max-width:680px;background:linear-gradient(180deg,var(--panel),var(--bg-2));border:1px solid var(--line);border-radius:14px;padding:12px 16px;text-align:left;transition:.18s}
+.whatsnew:hover{border-color:var(--accent);transform:translateY(-2px)}
+.wn-badge{font:800 10px/1 var(--mono);letter-spacing:.08em;color:#0a0e16;background:var(--copy);padding:5px 8px;border-radius:6px;flex:none}
+.wn-ver{font:700 13px/1 var(--mono);color:var(--copy);flex:none}
+.wn-text{font-size:.85rem;color:var(--ink-soft);flex:1;line-height:1.45}
+.wn-arrow{font:600 12px/1 var(--mono);color:var(--accent);white-space:nowrap;flex:none}
+@media(max-width:560px){.wn-arrow{display:none}}
+/* last updated / last checked status (auto-stamped) */
+.status{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin:16px auto 0;font:600 11.5px/1 var(--mono);color:var(--ink-dim)}
+.st-item{display:inline-flex;align-items:center;gap:7px}
+.st-dot{width:7px;height:7px;border-radius:50%;flex:none}
+.st-dot.up{background:var(--copy)}
+.st-dot.ck{background:var(--accent)}
+.st-item b{color:var(--ink-soft);font-weight:700}
+
+/* stat band */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:48px}
+.stat{background:linear-gradient(180deg,var(--panel),var(--bg-2));border:1px solid var(--line-soft);border-radius:var(--radius);padding:20px 18px;text-align:left;position:relative;overflow:hidden}
+.stat::after{content:"";position:absolute;inset:0 0 auto 0;height:2px;background:linear-gradient(90deg,var(--accent),transparent)}
+.stat .n{font-size:1.85rem;font-weight:900;letter-spacing:-.04em}
+.stat .l{font-size:.8rem;color:var(--ink-dim);margin-top:5px;line-height:1.4}
+@media(max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+/* section shell */
+.block{padding:72px 0;border-top:1px solid var(--line-soft)}
+.block h2{font-size:clamp(1.7rem,4.2vw,2.5rem);font-weight:850}
+.block .head{max-width:74ch;margin-bottom:36px}
+.block .head p{margin-top:12px}
+
+/* pillars */
+.grid{display:grid;gap:14px}
+.grid.g3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:780px){.grid.g3{grid-template-columns:1fr}}
+.pillar{background:linear-gradient(180deg,var(--panel),var(--bg-2));border:1px solid var(--line-soft);border-radius:var(--radius-sm);padding:20px}
+.pillar .ico{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;margin-bottom:11px;border:1px solid var(--line);font-size:18px}
+.pillar h4{font-size:1.04rem}
+.pillar p{font-size:.92rem;color:var(--ink-soft);margin-top:7px}
+
+/* foundation callout */
+.foundation{display:flex;align-items:center;gap:18px;background:linear-gradient(120deg,#a78bfa18,var(--bg-2));border:1px solid #3a2f63;border-radius:var(--radius);padding:22px 24px;margin-bottom:28px;flex-wrap:wrap}
+.foundation .fmk{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:#a78bfa1f;border:1px solid #4a3d7a;color:var(--foundation);font-size:22px;flex:none}
+.foundation .fbody{flex:1;min-width:240px}
+.foundation .fname{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.foundation .fname code{font:700 1.05rem/1 var(--mono);color:var(--foundation)}
+.foundation .fname .vpill{font:600 11px/1 var(--mono);color:var(--foundation);border:1px solid #4a3d7a;background:#1a1530;padding:5px 8px;border-radius:999px}
+.foundation p{font-size:.93rem;color:var(--ink-soft);margin-top:6px}
+
+/* category filter */
+.filters{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:26px}
+.fchip{font:600 12px/1 var(--mono);border:1px solid var(--line);padding:8px 12px;border-radius:999px;cursor:pointer;color:var(--ink-soft);background:#0c1422;transition:.15s;display:inline-flex;align-items:center;gap:7px}
+.fchip i{width:8px;height:8px;border-radius:50%;display:inline-block}
+.fchip:hover{border-color:var(--fc,var(--accent));color:#fff}
+.fchip.active{background:var(--fc,var(--accent));color:#0a0e16;border-color:var(--fc,var(--accent));font-weight:700}
+.fchip.active i{background:#0a0e16}
+
+/* category sections + skill cards */
+.catsec{margin-bottom:34px;scroll-margin-top:80px}
+.catsec.hide{display:none}
+.cathead{display:flex;align-items:center;gap:11px;margin-bottom:14px}
+.cathead i{width:11px;height:11px;border-radius:3px;background:var(--cc);flex:none}
+.cathead h3{font-size:1.18rem;font-weight:800}
+.cathead .ct{font:700 11px/1 var(--mono);color:var(--cc);border:1px solid var(--line);background:#0c1422;padding:5px 9px;border-radius:999px}
+.skgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
+@media(max-width:900px){.skgrid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.skgrid{grid-template-columns:1fr}}
+.skcard{background:linear-gradient(180deg,var(--panel),var(--bg-2));border:1px solid var(--line-soft);border-left:3px solid var(--cc);border-radius:var(--radius-sm);padding:16px 16px 15px;transition:transform .18s,border-color .18s;position:relative}
+.skcard:hover{transform:translateY(-3px);border-color:var(--cc)}
+.skcard .top{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.skcard .nm{font:700 .98rem/1.2 var(--mono);color:var(--cc);letter-spacing:-.01em;word-break:break-word}
+.skcard .vpill{font:600 10.5px/1 var(--mono);color:var(--ink-soft);border:1px solid var(--line);background:#0c1422;padding:4px 7px;border-radius:999px;flex:none}
+.skcard .vpill.fresh{color:var(--copy);border-color:#1f3b32;background:#0f2019}
+.skcard p{font-size:.86rem;color:var(--ink-soft);margin-top:8px;line-height:1.5}
+.skcard .upd{margin-top:10px;font:600 10px/1 var(--mono);color:var(--ink-dim);letter-spacing:.04em;text-transform:uppercase}
+.skcard .new-tag{position:absolute;top:14px;right:54px;font:800 8.5px/1 var(--mono);letter-spacing:.08em;color:var(--copy)}
+
+/* install / cheat */
+.cheat{background:#070b12;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+.cheat .bar-top{display:flex;align-items:center;gap:8px;padding:12px 18px;background:#0c1320;border-bottom:1px solid var(--line)}
+.cheat .bar-top i{width:12px;height:12px;border-radius:50%;display:inline-block}
+.cheat .bar-top .t{margin-left:10px;font:600 12.5px/1 var(--mono);color:var(--ink-dim)}
+.cheat pre{margin:0;padding:22px;overflow-x:auto;font:500 13.5px/1.85 var(--mono);color:var(--ink-soft)}
+.cheat .cm{color:var(--ink-dim)}
+.cheat .sk{color:var(--accent);font-weight:600}
+.cheat .ar{color:var(--growth)}
+
+/* footer */
+.foot{padding:56px 0 80px;border-top:1px solid var(--line-soft);text-align:center;color:var(--ink-dim)}
+.foot .big{font-size:1.35rem;font-weight:800;color:var(--ink);letter-spacing:-.03em}
+.foot p{margin-top:9px;font-size:.88rem}
+.foot a{color:var(--ink-soft);border-bottom:1px solid var(--line)}
+.foot .meta{margin-top:16px;font:600 12px/1.6 var(--mono);color:var(--ink-dim)}
+
+/* reveal */
+.js .reveal{opacity:0;transform:translateY(20px);transition:opacity .65s cubic-bezier(.2,.7,.2,1),transform .65s cubic-bezier(.2,.7,.2,1)}
+.js .reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.js .reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="brand"><span class="mk">◆</span> marketing skills</div>
+    <div class="nav-links">
+      <a href="#what">What it is</a>
+      <a href="#skills" class="hot">▸ Browse skills</a>
+      <a href="#how">How they work</a>
+      <a href="#install">Install</a>
+    </div>
+    <span class="pill-ver"><!--MSV-->v2.4.2<!--/MSV--></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="reveal">
+      <h1 class="grad">marketing skills</h1>
+      <p class="sub">The full marketing toolkit for AI agents — as Agent Skills.</p>
+      <p class="desc">An open-source library by <a href="https://corey.co?ref=marketing-skills" style="color:var(--accent)" target="_blank" rel="noopener">Corey Haines</a> for technical marketers and founders. Conversion, copy, SEO, paid, growth, and GTM — each a specialist your agent loads on demand. Works with Claude Code, Codex, Cursor, and any agent on the Agent Skills spec.</p>
+      <!--MS_WHATSNEW_START--><a class="whatsnew" href="https://github.com/coreyhaines31/marketingskills/blob/main/VERSIONS.md" target="_blank" rel="noopener"><span class="wn-badge">NEW</span><span class="wn-ver">v2.4.2</span><span class="wn-text">44 marketing skills across 8 categories — v2.4.2.</span><span class="wn-arrow">versions →</span></a><!--MS_WHATSNEW_END-->
+      <div class="status">
+        <span class="st-item"><span class="st-dot up"></span>Updated <b><!--MSU-->Jun 15, 2026<!--/MSU--></b></span>
+        <span class="st-item"><span class="st-dot ck"></span>Checked <b><!--MSC-->Jun 16, 2026 · 8:04 PM CT<!--/MSC--></b></span>
+      </div>
+      <div class="cta">
+        <a class="btn pri" href="#skills">▸ Browse the library</a>
+        <a class="btn" href="#install">Install</a>
+      </div>
+    </div>
+    <div class="stats reveal">
+      <div class="stat"><div class="n grad"><!--MSN-->44<!--/MSN--></div><div class="l">Marketing skills — each a specialist with a job</div></div>
+      <div class="stat"><div class="n">8</div><div class="l">Categories: SEO, CRO, copy, paid, growth, GTM, strategy + foundation</div></div>
+      <div class="stat"><div class="n">1</div><div class="l">Foundation — <code>product-marketing</code> read by all the rest</div></div>
+      <div class="stat"><div class="n">MIT</div><div class="l">Open source. Claude Code, Codex, Cursor &amp; more</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- WHAT -->
+<section class="block" id="what">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">The idea in one line</span>
+      <h2>A specialist for every marketing job.</h2>
+      <p class="lead">Skills are markdown files that hand an AI agent the right framework, checklist, and best practices
+        the moment you start a marketing task. Instead of one blank prompt, you get the conversion playbook for a pricing page,
+        the deliverability rules for a cold-email sequence, or the schema spec for an SEO fix — applied automatically.</p>
+    </div>
+    <div class="grid g3">
+      <div class="pillar reveal"><div class="ico" style="color:var(--foundation);background:#a78bfa14">◆</div><h4>One shared foundation</h4><p><code>product-marketing</code> captures your positioning and audience once. Every other skill reads it first, so advice fits your product — not a generic template.</p></div>
+      <div class="pillar reveal"><div class="ico" style="color:var(--cro);background:#22d3ee14">⚙</div><h4>Triggered, not searched</h4><p>Each skill lists the phrases that summon it. Say "this landing page isn't converting" and the CRO skill loads itself — no command to remember.</p></div>
+      <div class="pillar reveal"><div class="ico" style="color:var(--copy);background:#34d39914">∞</div><h4>They build on each other</h4><p><code>copywriting ↔ cro ↔ ab-testing</code>, <code>seo-audit ↔ schema ↔ ai-seo</code>. Skills cross-reference so a task pulls in everything it needs.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="block" id="skills">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow"><!--MSN-->44<!--/MSN--> skills · live versions</span>
+      <h2>The library</h2>
+      <p class="lead">Grouped by where they sit in the funnel. Version pills and dates come straight from the upstream
+        <code>VERSIONS.md</code> — this page re-checks daily, so what you see is what's installed.</p>
+    </div>
+
+    <!-- foundation -->
+    <div class="foundation reveal" id="foundation-card">
+      <div class="fmk">◆</div>
+      <div class="fbody">
+        <div class="fname"><code>product-marketing</code><span class="vpill" id="pm-ver">v2.0.0</span></div>
+        <p>The foundation every other skill reads first — your positioning, audience, and product context. Set this up once and the whole library gets sharper.</p>
+      </div>
+    </div>
+
+    <div class="filters reveal" id="filters"></div>
+    <div id="catalog"></div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section class="block" id="how">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">How skills work together</span>
+      <h2>Foundation in, funnel out.</h2>
+      <p class="lead">Set the foundation once, then each stage of the funnel has its own specialists.
+        Skills reference each other so the right context comes along for the ride.</p>
+    </div>
+    <div class="grid g3">
+      <div class="pillar reveal"><div class="ico" style="color:var(--seo);background:#60a5fa14">🔍</div><h4>Get found</h4><p>SEO &amp; Content plus Paid &amp; Measurement bring the right people in — search, AI answers, and ads that you can actually measure.</p></div>
+      <div class="pillar reveal"><div class="ico" style="color:var(--cro);background:#22d3ee14">📈</div><h4>Convert &amp; activate</h4><p>CRO and Content &amp; Copy turn visitors into signups and signups into active users — pages, flows, emails, and creative.</p></div>
+      <div class="pillar reveal"><div class="ico" style="color:var(--gtm);background:#fb923c14">🚀</div><h4>Retain &amp; grow</h4><p>Growth &amp; Retention plus Sales &amp; GTM keep them, expand them, and arm the launch — referrals, win-back, pricing, and PR.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTALL -->
+<section class="block" id="install">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Two minutes</span>
+      <h2>Install</h2>
+      <p class="lead">Drop the whole library into any agent, or cherry-pick the skills you want. Files land in
+        <code>.agents/skills/</code> and symlink into <code>.claude/skills/</code> for Claude Code.</p>
+    </div>
+    <div class="cheat reveal">
+      <div class="bar-top"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span class="t">terminal — npx skills</span></div>
+<pre><span class="cm"># install everything</span>
+<span class="sk">npx skills add coreyhaines31/marketingskills</span>
+
+<span class="cm"># or cherry-pick</span>
+<span class="sk">npx skills add coreyhaines31/marketingskills</span> --skill cro copywriting ads
+
+<span class="cm"># list what's available</span>
+<span class="sk">npx skills add coreyhaines31/marketingskills</span> --list
+
+<span class="cm"># Claude Code plugin install (alternative)</span>
+<span class="sk">/plugin marketplace add coreyhaines31/marketingskills</span> <span class="ar">→</span> <span class="sk">/plugin install marketing-skills</span></pre>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="big grad">Marketing, as a skill set.</div>
+    <p>Library by <a href="https://corey.co?ref=marketing-skills" target="_blank" rel="noopener">Corey Haines</a> — <a href="https://swipefiles.com?ref=marketing-skills" target="_blank" rel="noopener">Swipe Files</a> · <a href="https://conversionfactory.co?ref=marketing-skills" target="_blank" rel="noopener">Conversion Factory</a>. This overview is an unofficial mirror.</p>
+    <div class="meta">marketingskills <!--MSV-->v2.4.2<!--/MSV--> · MIT · <a href="https://github.com/coreyhaines31/marketingskills" target="_blank" rel="noopener">github.com/coreyhaines31/marketingskills</a></div>
+    <div class="meta" style="margin-top:8px;opacity:.85">Updated <!--MSU-->Jun 15, 2026<!--/MSU--> · Checked <!--MSC-->Jun 16, 2026 · 8:04 PM CT<!--/MSC--> · auto-checks daily at 5pm CT</div>
+  </div>
+</footer>
+
+<!-- live skill table, re-injected by scripts/update-doc.mjs on every run -->
+<!--MS_DATA_START--><script>window.__SKILLS__={"ab-testing":{"v":"2.0.0","u":"2026-05-05"},"ad-creative":{"v":"2.0.0","u":"2026-05-05"},"ai-seo":{"v":"2.1.0","u":"2026-06-15"},"analytics":{"v":"2.0.0","u":"2026-05-05"},"aso":{"v":"2.0.0","u":"2026-05-05"},"churn-prevention":{"v":"2.0.0","u":"2026-05-05"},"co-marketing":{"v":"2.0.0","u":"2026-05-05"},"cold-email":{"v":"2.0.0","u":"2026-05-05"},"community-marketing":{"v":"2.0.0","u":"2026-05-05"},"competitor-profiling":{"v":"2.0.0","u":"2026-05-05"},"competitors":{"v":"2.0.0","u":"2026-05-05"},"content-strategy":{"v":"2.0.0","u":"2026-05-05"},"copy-editing":{"v":"2.0.0","u":"2026-05-05"},"copywriting":{"v":"2.0.0","u":"2026-05-05"},"cro":{"v":"2.0.0","u":"2026-05-05"},"customer-research":{"v":"2.0.0","u":"2026-05-05"},"directory-submissions":{"v":"2.0.0","u":"2026-05-05"},"emails":{"v":"2.0.0","u":"2026-05-05"},"free-tools":{"v":"2.0.0","u":"2026-05-05"},"image":{"v":"2.0.1","u":"2026-05-18"},"launch":{"v":"2.0.0","u":"2026-05-05"},"lead-magnets":{"v":"2.0.0","u":"2026-05-05"},"marketing-ideas":{"v":"2.0.0","u":"2026-05-05"},"marketing-plan":{"v":"1.1.0","u":"2026-05-29"},"marketing-psychology":{"v":"2.0.0","u":"2026-05-05"},"onboarding":{"v":"2.0.0","u":"2026-05-05"},"ads":{"v":"2.0.1","u":"2026-05-26"},"paywalls":{"v":"2.0.0","u":"2026-05-05"},"popups":{"v":"2.0.0","u":"2026-05-05"},"pricing":{"v":"2.0.0","u":"2026-05-05"},"product-marketing":{"v":"2.0.0","u":"2026-05-05"},"programmatic-seo":{"v":"2.0.0","u":"2026-05-05"},"prospecting":{"v":"1.0.0","u":"2026-05-26"},"public-relations":{"v":"1.0.0","u":"2026-06-10"},"referrals":{"v":"2.0.0","u":"2026-05-05"},"revops":{"v":"2.0.0","u":"2026-05-05"},"sales-enablement":{"v":"2.0.0","u":"2026-05-05"},"schema":{"v":"2.0.0","u":"2026-05-05"},"seo-audit":{"v":"2.0.0","u":"2026-05-05"},"signup":{"v":"2.0.0","u":"2026-05-05"},"site-architecture":{"v":"2.0.0","u":"2026-05-05"},"sms":{"v":"1.0.0","u":"2026-05-21"},"social":{"v":"2.1.0","u":"2026-06-10"},"video":{"v":"2.0.1","u":"2026-05-18"}};window.__MSMETA__={version:"2.4.2",count:44,updated:"Jun 15, 2026"};</script><!--MS_DATA_END-->
+
+<script>
+/* ============ static metadata: category + one-line description per skill ============ */
+var CATS=[
+  {k:'seo',name:'SEO & Content',color:'#60a5fa'},
+  {k:'cro',name:'CRO',color:'#22d3ee'},
+  {k:'copy',name:'Content & Copy',color:'#34d399'},
+  {k:'paid',name:'Paid & Measurement',color:'#fbbf24'},
+  {k:'growth',name:'Growth & Retention',color:'#f472b6'},
+  {k:'gtm',name:'Sales & GTM',color:'#fb923c'},
+  {k:'strategy',name:'Strategy',color:'#818cf8'}
+];
+var META={
+  'product-marketing':{c:'foundation',d:'The foundation every other skill reads first — positioning, audience, product context.'},
+  // SEO & Content
+  'seo-audit':{c:'seo',d:'Audit, review, and diagnose SEO issues across your site.'},
+  'ai-seo':{c:'seo',d:'Optimize for AI search and LLM citations — AEO / GEO / answer engines.'},
+  'site-architecture':{c:'seo',d:'Plan page hierarchy, navigation, URL structure, and internal linking.'},
+  'programmatic-seo':{c:'seo',d:'Create SEO-driven pages at scale using templates and data.'},
+  'schema':{c:'seo',d:'Add, fix, and optimize schema markup and structured data.'},
+  'content-strategy':{c:'seo',d:'Plan what to write — topic clusters, pillars, editorial calendar.'},
+  'aso':{c:'seo',d:'Audit and optimize App Store and Google Play listings.'},
+  // CRO
+  'cro':{c:'cro',d:'Increase conversions on landing, pricing, and feature pages and forms.'},
+  'signup':{c:'cro',d:'Optimize signup, registration, and trial activation flows.'},
+  'onboarding':{c:'cro',d:'Improve post-signup activation, first-run, and time-to-value.'},
+  'popups':{c:'cro',d:'Create and optimize popups, modals, overlays, and banners.'},
+  'paywalls':{c:'cro',d:'Design in-app paywalls, upgrade screens, and feature gates.'},
+  // Content & Copy
+  'copywriting':{c:'copy',d:'Write and rewrite marketing copy for any page.'},
+  'copy-editing':{c:'copy',d:'Edit, polish, and refresh existing marketing copy.'},
+  'cold-email':{c:'copy',d:'B2B cold outreach and follow-up sequences that get replies.'},
+  'emails':{c:'copy',d:'Build email sequences, drip campaigns, and lifecycle flows.'},
+  'social':{c:'copy',d:'Create, schedule, and optimize social content across platforms.'},
+  'video':{c:'copy',d:'Produce video with AI tools and programmatic frameworks.'},
+  'image':{c:'copy',d:'Generate and optimize marketing images and graphics.'},
+  'sms':{c:'copy',d:'Plan SMS / MMS flows — welcome, cart, post-purchase, win-back.'},
+  // Paid & Measurement
+  'ads':{c:'paid',d:'Plan paid campaigns on Google, Meta, LinkedIn, and X.'},
+  'ad-creative':{c:'paid',d:'Generate, iterate, and scale ad creative at volume.'},
+  'ab-testing':{c:'paid',d:'Design A/B tests and build an experimentation program.'},
+  'analytics':{c:'paid',d:'Set up, audit, and improve tracking and measurement.'},
+  // Growth & Retention
+  'referrals':{c:'growth',d:'Build referral, affiliate, and word-of-mouth programs.'},
+  'free-tools':{c:'growth',d:'Plan and build free tools for lead gen and SEO value.'},
+  'churn-prevention':{c:'growth',d:'Reduce churn — save offers, dunning, win-back, retention.'},
+  'community-marketing':{c:'growth',d:'Build and grow communities for community-led growth.'},
+  'lead-magnets':{c:'growth',d:'Create gated content and lead magnets for email capture.'},
+  'co-marketing':{c:'growth',d:'Find partners and plan joint, cross-promotional campaigns.'},
+  // Sales & GTM
+  'revops':{c:'gtm',d:'Revenue ops, lead lifecycle, and marketing-to-sales handoff.'},
+  'sales-enablement':{c:'gtm',d:'Build sales collateral, decks, and objection handling.'},
+  'launch':{c:'gtm',d:'Plan launches, announcements, and go-to-market.'},
+  'pricing':{c:'gtm',d:'Pricing, packaging, and monetization strategy.'},
+  'competitors':{c:'gtm',d:'Create comparison and "alternative to" landing pages.'},
+  'competitor-profiling':{c:'gtm',d:'Research and profile competitors from their URLs.'},
+  'directory-submissions':{c:'gtm',d:'Submit to startup, SaaS, AI, and review directories.'},
+  'prospecting':{c:'gtm',d:'Find, qualify, and build B2B prospect lists.'},
+  'public-relations':{c:'gtm',d:'Earned media, press coverage, and journalist outreach.'},
+  // Strategy
+  'marketing-ideas':{c:'strategy',d:'Generate marketing ideas, inspiration, and growth strategies.'},
+  'marketing-psychology':{c:'strategy',d:'Apply behavioral science and mental models to marketing.'},
+  'customer-research':{c:'strategy',d:'Conduct and synthesize customer research and voice-of-customer.'},
+  'marketing-plan':{c:'strategy',d:'Generate a comprehensive AARRR-structured marketing plan.'}
+};
+
+var SKILLS=window.__SKILLS__||{};
+var REPO='https://github.com/coreyhaines31/marketingskills/tree/main/skills/';
+var FRESH_DAYS=30;
+
+function fmtDate(iso){
+  if(!iso)return '';
+  var p=iso.split('-'); if(p.length!==3)return iso;
+  var mo=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][parseInt(p[1],10)-1];
+  return mo+' '+parseInt(p[2],10)+', '+p[0];
+}
+function isFresh(iso){
+  if(!iso)return false;
+  var d=new Date(iso+'T00:00:00Z'), now=new Date();
+  return (now-d)/86400000 <= FRESH_DAYS;
+}
+function colorFor(catKey){
+  for(var i=0;i<CATS.length;i++)if(CATS[i].k===catKey)return CATS[i].color;
+  return '#6ea8ff';
+}
+
+/* foundation version pill */
+(function(){
+  var pm=SKILLS['product-marketing'];
+  if(pm){var el=document.getElementById('pm-ver'); if(el)el.textContent='v'+pm.v;}
+})();
+
+/* group skills by category (skip the foundation — it has its own callout) */
+function grouped(){
+  var g={}; CATS.forEach(function(c){g[c.k]=[];});
+  var extra=[];
+  Object.keys(SKILLS).forEach(function(name){
+    if(name==='product-marketing')return;
+    var m=META[name];
+    var card={name:name,v:SKILLS[name].v,u:SKILLS[name].u,d:m?m.d:'Marketing skill from the marketingskills library.'};
+    if(m&&g[m.c])g[m.c].push(card); else extra.push(card);
+  });
+  // any META skill missing from the live table still renders (graceful), versionless
+  Object.keys(META).forEach(function(name){
+    if(name==='product-marketing'||SKILLS[name])return;
+    var m=META[name];
+    if(g[m.c])g[m.c].push({name:name,v:'',u:'',d:m.d});
+  });
+  Object.keys(g).forEach(function(k){g[k].sort(function(a,b){return a.name<b.name?-1:1;});});
+  return {g:g,extra:extra.sort(function(a,b){return a.name<b.name?-1:1;})};
+}
+
+function cardHTML(s,color){
+  var fresh=isFresh(s.u);
+  return '<a class="skcard" href="'+REPO+s.name+'" target="_blank" rel="noopener" style="--cc:'+color+'">'+
+    (fresh?'<span class="new-tag">UPDATED</span>':'')+
+    '<div class="top"><span class="nm">'+s.name+'</span>'+(s.v?'<span class="vpill'+(fresh?' fresh':'')+'">v'+s.v+'</span>':'')+'</div>'+
+    '<p>'+s.d+'</p>'+
+    (s.u?'<div class="upd">Updated '+fmtDate(s.u)+'</div>':'')+
+    '</a>';
+}
+
+(function render(){
+  var data=grouped(), catalog=document.getElementById('catalog'), filters=document.getElementById('filters'), html='', fhtml='';
+  fhtml+='<button class="fchip active" data-cat="all" style="--fc:var(--accent)"><i style="background:var(--accent)"></i>All</button>';
+  CATS.forEach(function(c){
+    var items=data.g[c.k]; if(!items.length)return;
+    fhtml+='<button class="fchip" data-cat="'+c.k+'" style="--fc:'+c.color+'"><i style="background:'+c.color+'"></i>'+c.name+' '+items.length+'</button>';
+    html+='<div class="catsec reveal in" data-cat="'+c.k+'" style="--cc:'+c.color+'">'+
+      '<div class="cathead"><i></i><h3>'+c.name+'</h3><span class="ct">'+items.length+'</span></div>'+
+      '<div class="skgrid">'+items.map(function(s){return cardHTML(s,c.color);}).join('')+'</div></div>';
+  });
+  if(data.extra.length){
+    fhtml+='<button class="fchip" data-cat="more" style="--fc:#7186a3"><i style="background:#7186a3"></i>More '+data.extra.length+'</button>';
+    html+='<div class="catsec reveal in" data-cat="more" style="--cc:#7186a3">'+
+      '<div class="cathead"><i></i><h3>More skills</h3><span class="ct">'+data.extra.length+'</span></div>'+
+      '<div class="skgrid">'+data.extra.map(function(s){return cardHTML(s,'#7186a3');}).join('')+'</div></div>';
+  }
+  filters.innerHTML=fhtml; catalog.innerHTML=html;
+  Array.prototype.forEach.call(filters.querySelectorAll('.fchip'),function(b){
+    b.addEventListener('click',function(){
+      var cat=b.getAttribute('data-cat');
+      Array.prototype.forEach.call(filters.querySelectorAll('.fchip'),function(x){x.classList.toggle('active',x===b);});
+      Array.prototype.forEach.call(catalog.querySelectorAll('.catsec'),function(sec){
+        sec.classList.toggle('hide',cat!=='all'&&sec.getAttribute('data-cat')!==cat);
+      });
+      var fc=document.getElementById('foundation-card');
+      if(fc)fc.style.display=(cat==='all')?'':'none';
+    });
+  });
+})();
+
+/* reveal */
+(function(){
+  var els=document.querySelectorAll('.reveal:not(.in)');
+  if(!('IntersectionObserver' in window)){Array.prototype.forEach.call(els,function(e){e.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+  Array.prototype.forEach.call(els,function(e){io.observe(e);});
+})();
+</script>
+</body>
+</html>

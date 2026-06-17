@@ -1,0 +1,85 @@
+name: Check marketing-skills release
+
+# Polls coreyhaines31/marketingskills daily. When the library version changes,
+# regenerates the overview (version badges + what's-new banner + skill grid),
+# commits it (which triggers a Vercel redeploy), and sends a Telegram notification.
+
+on:
+  schedule:
+    # 5pm Central year-round: 22:00 UTC during CDT, 23:00 UTC during CST.
+    # update-doc.mjs gates scheduled runs to the real 17:00 America/Chicago
+    # hour, so exactly one of these proceeds each day.
+    - cron: '0 22 * * *'
+    - cron: '0 23 * * *'
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Force a rebuild + test notification even if the version is unchanged'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: check-marketing-skills
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Check for a new marketing-skills version
+        id: check
+        run: node scripts/update-doc.mjs ${{ github.event.inputs.force == 'true' && '--force' || '' }}
+
+      - name: Commit & push updated overview
+        if: steps.check.outputs.skipped != 'true'
+        env:
+          VERSION: ${{ steps.check.outputs.version }}
+          CHANGED: ${{ steps.check.outputs.changed }}
+        run: |
+          git config user.name "marketing-skills-bot"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.html version.json
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            if [ "$CHANGED" = "true" ]; then
+              MSG="chore: marketing-skills v${VERSION}"
+            else
+              MSG="chore: checked marketing-skills ($(TZ=America/Chicago date '+%Y-%m-%d %H:%M %Z'))"
+            fi
+            git commit -m "$MSG"
+            git push
+          fi
+
+      - name: Notify Telegram
+        if: steps.check.outputs.changed == 'true'
+        env:
+          TG_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TG_CHAT: ${{ secrets.TELEGRAM_CHAT_ID }}
+          TG_THREAD: ${{ secrets.TELEGRAM_THREAD_IMPORTANT }}
+          VERSION: ${{ steps.check.outputs.version }}
+          HEADLINE: ${{ steps.check.outputs.headline }}
+        run: |
+          MSG="🚀 marketing-skills v${VERSION} updated
+
+          ${HEADLINE}
+
+          Updated overview → https://marketing-skills.vercel.app"
+          curl -sS -X POST "https://api.telegram.org/bot${TG_TOKEN}/sendMessage" \
+            --data-urlencode "chat_id=${TG_CHAT}" \
+            --data-urlencode "message_thread_id=${TG_THREAD}" \
+            --data-urlencode "text=${MSG}" \
+            --data-urlencode "disable_web_page_preview=false" \
+            -o /tmp/tg.json -w "Telegram HTTP %{http_code}\n"
+          if ! grep -q '"ok":true' /tmp/tg.json; then
+            echo "Telegram send failed:"; cat /tmp/tg.json; exit 1
+          fi

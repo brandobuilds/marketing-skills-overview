@@ -1,0 +1,6 @@
+.vercel
+.DS_Store
+node_modules
+
+# local QA artifacts
+.playwright-cli
