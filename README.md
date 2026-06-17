@@ -3,7 +3,7 @@
 Auto-updating overview of the [marketingskills](https://github.com/coreyhaines31/marketingskills)
 library by Corey Haines — a self-contained static page that stays current with zero manual upkeep.
 
-Live: **https://marketing-skills.vercel.app**
+Live: **https://marskills.vercel.app**
 
 Sibling sites: `gstack-status.vercel.app` (gstack-overview) · `compound-status.vercel.app` (compound-status).
 Same architecture as both — pure-Node generator, marker-based HTML rewrite, GitHub Actions + Vercel auto-deploy, Telegram on change.

@@ -73,7 +73,7 @@ jobs:
 
           ${HEADLINE}
 
-          Updated overview → https://marketing-skills.vercel.app"
+          Updated overview → https://marskills.vercel.app"
           curl -sS -X POST "https://api.telegram.org/bot${TG_TOKEN}/sendMessage" \
             --data-urlencode "chat_id=${TG_CHAT}" \
             --data-urlencode "message_thread_id=${TG_THREAD}" \

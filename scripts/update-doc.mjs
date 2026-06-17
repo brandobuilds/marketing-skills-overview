@@ -47,7 +47,7 @@ const RAW = 'https://raw.githubusercontent.com/coreyhaines31/marketingskills/mai
 const PLUGIN_JSON = `${RAW}/.claude-plugin/plugin.json`;
 const VERSIONS_URL = `${RAW}/VERSIONS.md`;
 const VERSIONS_LINK = 'https://github.com/coreyhaines31/marketingskills/blob/main/VERSIONS.md';
-const DOC_URL = 'https://marketing-skills.vercel.app';
+const DOC_URL = 'https://marskills.vercel.app';
 const force = process.argv.includes('--force');
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
