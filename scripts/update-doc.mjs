@@ -27,9 +27,12 @@
  *   - Updated  = newest per-skill "Last Updated" date in VERSIONS.md
  *   - Checked  = when this script last polled upstream (Central Time)
  *
- * Scheduled runs only proceed during the 5pm Central hour (the workflow fires
- * two UTC crons to cover CST/CDT; this gate keeps exactly one). Manual
- * (workflow_dispatch) runs always proceed.
+ * Scheduled runs refresh at most once per Central day. GitHub's scheduler
+ * routinely fires cron 30-90+ min late (or drops a run under load), so the
+ * old exact-hour gate skipped nearly every run; instead we dedupe on the
+ * Central calendar date recorded in version.json — whichever cron lands first
+ * each CT day does the work, the rest no-op. Manual (workflow_dispatch) and
+ * --force runs always proceed.
  *
  * Run with --force to refresh the banner + emit changed=true even when the
  * version is unchanged (smoke-tests the notification pipeline).
@@ -55,7 +58,7 @@ const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replac
 const CT = 'America/Chicago';
 const ctDate = (d) => new Intl.DateTimeFormat('en-US', { timeZone: CT, month: 'short', day: 'numeric', year: 'numeric' }).format(d);
 const ctTime = (d) => new Intl.DateTimeFormat('en-US', { timeZone: CT, hour: 'numeric', minute: '2-digit', hour12: true }).format(d);
-const ctHour = (d) => parseInt(new Intl.DateTimeFormat('en-US', { timeZone: CT, hour: 'numeric', hour12: false }).format(d), 10);
+const ctYMD = (d) => new Intl.DateTimeFormat('en-CA', { timeZone: CT, year: 'numeric', month: '2-digit', day: '2-digit' }).format(d);
 const ctDateTime = (d) => `${ctDate(d)} · ${ctTime(d)} CT`;
 // Format a YYYY-MM-DD calendar date without timezone drift.
 const calDate = (iso) => (iso ? new Intl.DateTimeFormat('en-US', { timeZone: 'UTC', month: 'short', day: 'numeric', year: 'numeric' }).format(new Date(iso + 'T00:00:00Z')) : '');
@@ -114,11 +117,16 @@ async function main() {
   const now = new Date();
   const eventName = process.env.GITHUB_EVENT_NAME || 'local';
 
-  // Scheduled runs only proceed during the 5pm Central hour.
-  if (eventName === 'schedule' && ctHour(now) !== 17) {
-    console.log(`Scheduled run at ${ctDateTime(now)} is outside the 5pm CT window — skipping.`);
-    setOutput({ changed: 'false', skipped: 'true' });
-    return;
+  // Refresh at most once per Central day. GitHub's cron fires late/erratically,
+  // so we dedupe on the CT calendar date already recorded in version.json
+  // rather than gating on an exact hour. Manual/--force runs always proceed.
+  if (eventName === 'schedule' && !force) {
+    const prev = fs.existsSync(STATE) ? JSON.parse(fs.readFileSync(STATE, 'utf8')) : {};
+    if (prev.checkedISO && ctYMD(new Date(prev.checkedISO)) === ctYMD(now)) {
+      console.log(`Already refreshed today (${ctYMD(now)} CT) — skipping duplicate scheduled run.`);
+      setOutput({ changed: 'false', skipped: 'true' });
+      return;
+    }
   }
 
   // Version is canonical from the plugin manifest.
