@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Pricing redesign",
+    "when": "Reworking a pricing page and packaging.",
+    "chain": ["product-marketing", "pricing", "cro", "copywriting", "ab-testing"]
+  },
+  {
+    "title": "New feature launch",
+    "when": "Taking a feature to market.",
+    "chain": ["launch", "copywriting", "emails", "social", "ads"]
+  },
+  {
+    "title": "SEO content engine",
+    "when": "Standing up organic search as a channel.",
+    "chain": ["content-strategy", "seo-audit", "schema", "ai-seo", "programmatic-seo"]
+  },
+  {
+    "title": "Reduce churn",
+    "when": "Revenue is leaking out the back.",
+    "chain": ["churn-prevention", "emails", "paywalls", "onboarding"]
+  }
+]

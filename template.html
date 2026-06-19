@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<!--@head-theme-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{TITLE}}</title>
+<meta name="description" content="{{META_DESC}}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!--@style-->
+</head>
+<body>
+
+<!--@component:nav-->
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="reveal">
+      <h1 class="grad">marketing skills</h1>
+      <p class="sub">The full marketing toolkit for AI agents — as Agent Skills.</p>
+      <p class="desc">An open-source library by <a href="https://corey.co?ref=marketing-skills" style="color:var(--accent)" target="_blank" rel="noopener">Corey Haines</a> for technical marketers and founders. Conversion, copy, SEO, paid, growth, and GTM — each a specialist your agent loads on demand. Works with Claude Code, Codex, Cursor, and any agent on the Agent Skills spec.</p>
+      <a class="whatsnew" href="{{WHATSNEW_HREF}}" target="_blank" rel="noopener"><span class="wn-badge">NEW</span><span class="wn-ver">{{VERSION_PILL}}</span><span class="wn-text">{{HEADLINE}}</span><span class="wn-arrow">{{WHATSNEW_ARROW}}</span></a>
+      <div class="status">
+        <span class="st-item"><span class="st-dot up"></span>Updated <b>{{UPDATED}}</b></span>
+        <span class="st-item"><span class="st-dot ck"></span>Checked <b>{{CHECKED}}</b></span>
+      </div>
+      <div class="cta">
+        <a class="btn pri" href="#skills">▸ Browse the library</a>
+        <a class="btn" href="#install">Install</a>
+      </div>
+    </div>
+    <div class="stats reveal">
+      <div class="stat"><div class="n grad">{{COUNT}}</div><div class="l">Marketing skills — each a specialist with a job</div></div>
+      <div class="stat"><div class="n">8</div><div class="l">Categories: SEO, CRO, copy, paid, growth, GTM, strategy + foundation</div></div>
+      <div class="stat"><div class="n">1</div><div class="l">Foundation — <code>product-marketing</code> read by all the rest</div></div>
+      <div class="stat"><div class="n">MIT</div><div class="l">Open source. Claude Code, Codex, Cursor &amp; more</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- WHAT -->
+<section class="block" id="what">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">The idea in one line</span>
+      <h2>A specialist for every marketing job.</h2>
+      <p class="lead">Skills are markdown files that hand an AI agent the right framework, checklist, and best practices
+        the moment you start a marketing task. Instead of one blank prompt, you get the conversion playbook for a pricing page,
+        the deliverability rules for a cold-email sequence, or the schema spec for an SEO fix — applied automatically.</p>
+    </div>
+    <div class="grid g3">
+      <div class="pillar reveal"><div class="ico" style="color:var(--c-violet);background:#a78bfa14">◆</div><h4>One shared foundation</h4><p><code>product-marketing</code> captures your positioning and audience once. Every other skill reads it first, so advice fits your product — not a generic template.</p></div>
+      <div class="pillar reveal"><div class="ico" style="color:var(--c-cyan);background:#22d3ee14">⚙</div><h4>Triggered, not searched</h4><p>Each skill lists the phrases that summon it. Say "this landing page isn't converting" and the CRO skill loads itself — no command to remember.</p></div>
+      <div class="pillar reveal"><div class="ico" style="color:var(--c-green);background:#34d39914">∞</div><h4>They build on each other</h4><p><code>copywriting ↔ cro ↔ ab-testing</code>, <code>seo-audit ↔ schema ↔ ai-seo</code>. Skills cross-reference so a task pulls in everything it needs.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="block" id="skills">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">{{COUNT}} skills · live versions · search &amp; filter</span>
+      <h2>The library</h2>
+      <p class="lead">Grouped by where they sit in the funnel. Version pills and dates come straight from the upstream
+        <code>VERSIONS.md</code> — this page re-checks daily, so what you see is what's installed. Search by name or
+        what it does.</p>
+    </div>
+
+    <div class="foundation reveal" id="foundation-card">
+      <div class="fmk">◆</div>
+      <div class="fbody">
+        <div class="fname"><code>product-marketing</code><span class="vpill" id="pm-ver">v2.0.0</span></div>
+        <p>The foundation every other skill reads first — your positioning, audience, and product context. Set this up once and the whole library gets sharper.</p>
+      </div>
+    </div>
+
+    <div class="catalog-tools" id="catalog-tools"></div>
+    <div class="filters reveal" id="filters"></div>
+    <div id="catalog"></div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section class="block" id="how">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">How skills work together</span>
+      <h2>Foundation in, funnel out.</h2>
+      <p class="lead">Set the foundation once, then each stage of the funnel has its own specialists.
+        Skills reference each other so the right context comes along for the ride.</p>
+    </div>
+    <div class="grid g3" style="margin-bottom:22px">
+      <div class="pillar reveal"><div class="ico" style="color:var(--c-blue);background:#60a5fa14">🔍</div><h4>Get found</h4><p>SEO &amp; Content plus Paid &amp; Measurement bring the right people in — search, AI answers, and ads that you can actually measure.</p></div>
+      <div class="pillar reveal"><div class="ico" style="color:var(--c-cyan);background:#22d3ee14">📈</div><h4>Convert &amp; activate</h4><p>CRO and Content &amp; Copy turn visitors into signups and signups into active users — pages, flows, emails, and creative.</p></div>
+      <div class="pillar reveal"><div class="ico" style="color:var(--c-orange);background:#fb923c14">🚀</div><h4>Retain &amp; grow</h4><p>Growth &amp; Retention plus Sales &amp; GTM keep them, expand them, and arm the launch — referrals, win-back, pricing, and PR.</p></div>
+    </div>
+    <div class="reveal">
+      <span class="eyebrow" style="margin-top:8px">Common recipes</span>
+      <!--@component:recipes-->
+    </div>
+  </div>
+</section>
+
+<!-- OVERLAP -->
+<section class="block" id="overlap">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Two libraries, no confusion</span>
+      <h2>Where this overlaps gstack — and which to use</h2>
+      <p class="lead">A few skills exist in both this library and gstack's marketing layer. They coexist on purpose;
+        here's the rule for each so you never wonder which one fired.</p>
+    </div>
+    <div class="reveal"><!--@component:overlap--></div>
+  </div>
+</section>
+
+<!-- INSTALL -->
+<section class="block" id="install">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Two minutes</span>
+      <h2>Install</h2>
+      <p class="lead">Drop the whole library into any agent, or cherry-pick the skills you want. Files land in
+        <code>.agents/skills/</code> and symlink into <code>.claude/skills/</code> for Claude Code.</p>
+    </div>
+    <div class="cheat reveal">
+      <div class="bar-top"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span class="t">terminal — npx skills</span></div>
+<pre><span class="cm"># install everything</span>
+<span class="sk">npx skills add coreyhaines31/marketingskills</span>
+
+<span class="cm"># or cherry-pick</span>
+<span class="sk">npx skills add coreyhaines31/marketingskills</span> --skill cro copywriting ads
+
+<span class="cm"># list what's available</span>
+<span class="sk">npx skills add coreyhaines31/marketingskills</span> --list
+
+<span class="cm"># Claude Code plugin install (alternative)</span>
+<span class="sk">/plugin marketplace add coreyhaines31/marketingskills</span> <span class="ar">→</span> <span class="sk">/plugin install marketing-skills</span></pre>
+    </div>
+  </div>
+</section>
+
+<!-- FAMILY -->
+<section class="block" id="family">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">The skills family</span>
+      <h2>Four libraries, one system</h2>
+      <p class="lead">This is one of four auto-updating overviews — same design, same freshness, different toolkit.</p>
+    </div>
+    <div class="reveal"><!--@component:family--></div>
+  </div>
+</section>
+
+<!--@component:footer-->
+
+<!--@scripts-->
+</body>
+</html>
