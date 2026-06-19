@@ -6,9 +6,9 @@ name: Check marketing-skills release
 
 on:
   schedule:
-    # 5pm Central year-round: 22:00 UTC during CDT, 23:00 UTC during CST.
-    # update-doc.mjs gates scheduled runs to the real 17:00 America/Chicago
-    # hour, so exactly one of these proceeds each day.
+    # Two daily triggers for redundancy — GitHub often fires cron 30-90+ min
+    # late or skips a run under load. update-doc.mjs dedupes on the Central
+    # calendar date, so exactly one run per CT day actually updates the page.
     - cron: '0 22 * * *'
     - cron: '0 23 * * *'
   workflow_dispatch:
