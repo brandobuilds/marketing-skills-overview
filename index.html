@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
-<script>document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js');(function(){try{var t=localStorage.getItem('skills-theme');if(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches)t='light';if(t==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}})();</script>
+<script>document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js');(function(){try{var t=localStorage.getItem('skills-theme');if(!t&&window.matchMedia&&matchMedia('(prefers-color-scheme: light)').matches)t='light';if(t==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}})();</script><link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNyIgZmlsbD0iI2Y0NzJiNiIvPjx0ZXh0IHg9IjE2IiB5PSIyMiIgZm9udC1mYW1pbHk9InVpLW1vbm9zcGFjZSxTRk1vbm8tUmVndWxhcixNZW5sbyxtb25vc3BhY2UiIGZvbnQtc2l6ZT0iMTgiIGZvbnQtd2VpZ2h0PSI4MDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiMwYTBlMTYiPuKXhjwvdGV4dD48L3N2Zz4=">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>marketing skills — the full library, always current</title>
@@ -726,8 +726,10 @@ svg.has-active .lnode:not(.active){opacity:.32}
   function cardHTML(s, color) {
     var fresh = isFresh(s.u);
     var lib = SHOW_LIB && s.lib && LIBS[s.lib];
-    var href = s.repo || '#';
-    return '<a class="skcard" href="' + esc(href) + '" target="_blank" rel="noopener" style="--cc:' + color + (lib ? ';--lc:' + lib.color : '') + '" ' +
+    var hasLink = !!s.repo;
+    var tag = hasLink ? 'a' : 'div';
+    var attrs = hasLink ? ' href="' + esc(s.repo) + '" target="_blank" rel="noopener"' : '';
+    return '<' + tag + ' class="skcard" ' + attrs + ' style="--cc:' + color + (lib ? ';--lc:' + lib.color : '') + '" ' +
       'data-name="' + esc(s.name) + '" data-d="' + esc((s.d || '').toLowerCase()) + '" data-cat="' + esc(s.cat || 'more') + '">' +
       (fresh ? '<span class="new-tag">UPDATED</span>' : '') +
       '<div class="top"><span class="nm">' + esc(s.name) + '</span>' +
@@ -735,7 +737,7 @@ svg.has-active .lnode:not(.active){opacity:.32}
       '<p>' + esc(s.d || '') + '</p>' +
       (s.u ? '<div class="upd">Updated ' + fmtDate(s.u) + '</div>' : '') +
       (lib ? '<div class="lib"><i></i>' + esc(lib.name) + '</div>' : '') +
-      '</a>';
+      '</' + tag + '>';
   }
 
   /* ---- render search + filters + catalog ---- */
