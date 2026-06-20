@@ -4,3 +4,6 @@ node_modules
 
 # local QA artifacts
 .playwright-cli
+.playwright-cli/
+.DS_Store
+node_modules/

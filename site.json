@@ -1,0 +1,38 @@
+{
+  "id": "marketing",
+  "name": "marketing skills",
+  "brandMark": "◆",
+  "title": "marketing skills — the full library, always current",
+  "metaDescription": "A live overview of the marketingskills library by Corey Haines: marketing skills for AI agents — SEO, CRO, copy, paid, growth, GTM, and strategy — grouped, versioned, searchable, and auto-updated.",
+  "brand": {
+    "accent": "#f472b6",
+    "accentSoft": "#f472b622",
+    "accentLine": "#7a3a5c",
+    "accentPillBg": "#241019",
+    "accentPillLine": "#5a2740",
+    "accentPillBgLight": "#fde8f2",
+    "accentPillLineLight": "#f6c9de"
+  },
+  "navLinks": [
+    { "href": "#what", "label": "What it is" },
+    { "href": "#skills", "label": "▸ Browse skills", "hot": true },
+    { "href": "#how", "label": "How they work" },
+    { "href": "#overlap", "label": "vs gstack" },
+    { "href": "#install", "label": "Install" }
+  ],
+  "modules": ["catalog"],
+  "whatsNewHref": "https://github.com/coreyhaines31/marketingskills/blob/main/VERSIONS.md",
+  "whatsNewArrow": "versions →",
+  "repo": { "url": "https://github.com/coreyhaines31/marketingskills", "label": "github.com/coreyhaines31/marketingskills" },
+  "domain": "marskills.vercel.app",
+  "license": "MIT",
+  "autoNote": "auto-checks daily at 5pm CT",
+  "footerBig": "Marketing, as a skill set.",
+  "footerNote": "Library by <a href=\"https://corey.co?ref=marketing-skills\" target=\"_blank\" rel=\"noopener\">Corey Haines</a> — <a href=\"https://swipefiles.com?ref=marketing-skills\" target=\"_blank\" rel=\"noopener\">Swipe Files</a> · <a href=\"https://conversionfactory.co?ref=marketing-skills\" target=\"_blank\" rel=\"noopener\">Conversion Factory</a>. This overview is an unofficial mirror.",
+  "siblings": [
+    { "id": "gstack", "name": "gstack", "url": "https://gstack-status.vercel.app", "domain": "gstack-status.vercel.app", "color": "#6ea8ff", "blurb": "An AI engineering team — plan, build, review, test, ship — as slash commands." },
+    { "id": "compound", "name": "compound engineering", "url": "https://compound-status.vercel.app", "domain": "compound-status.vercel.app", "color": "#34d399", "blurb": "Development that compounds: a panel of reviewers + a learning loop." },
+    { "id": "marketing", "name": "marketing skills", "url": "https://marskills.vercel.app", "domain": "marskills.vercel.app", "color": "#f472b6", "blurb": "The full marketing toolkit — SEO, CRO, copy, paid, growth, GTM." },
+    { "id": "my-skills", "name": "my skills", "url": "https://myskills.vercel.app", "domain": "myskills.vercel.app", "color": "#a78bfa", "blurb": "Brandon's own skill library + the cross-library routing map." }
+  ]
+}

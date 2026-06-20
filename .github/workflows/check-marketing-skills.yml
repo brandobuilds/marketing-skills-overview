@@ -30,6 +30,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
+        with:
+          submodules: recursive
 
       - uses: actions/setup-node@v5
         with:
@@ -39,6 +41,10 @@ jobs:
         id: check
         run: node scripts/update-doc.mjs ${{ github.event.inputs.force == 'true' && '--force' || '' }}
 
+      - name: Assemble index.html from the shared kit
+        if: steps.check.outputs.skipped != 'true'
+        run: node kit/build/assemble.mjs
+
       - name: Commit & push updated overview
         if: steps.check.outputs.skipped != 'true'
         env:
@@ -47,7 +53,7 @@ jobs:
         run: |
           git config user.name "marketing-skills-bot"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add index.html version.json
+          git add index.html version.json data/skills.json
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else

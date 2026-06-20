@@ -1,0 +1,42 @@
+[
+  {
+    "kind": "name collision",
+    "color": "var(--c-pink)",
+    "items": ["copywriting", "cro", "content-strategy", "customer-research"],
+    "sep": "·",
+    "pick": "marketingskills",
+    "note": "These four names exist in <b>both</b> the marketingskills library and gstack's marketing layer. On disk they resolve to marketingskills (the v2 versions), and trigger-routing prefers them too — the v2 descriptions pack 10–20 trigger phrases. Net: you always get the marketingskills version here."
+  },
+  {
+    "kind": "same domain, different job",
+    "color": "var(--c-green)",
+    "items": ["social", "social-media (gstack)"],
+    "sep": "vs",
+    "pick": "both — on purpose",
+    "note": "<b>social</b> here is content-creation focused (what to post, how to write it). gstack's <b>social-media</b> is growth-mechanics focused (platform-by-platform follower playbook). Use the one that matches the task."
+  },
+  {
+    "kind": "granular vs broad",
+    "color": "var(--c-blue)",
+    "items": ["seo-audit · ai-seo · schema · …", "seo (gstack)"],
+    "sep": "vs",
+    "pick": "task-dependent",
+    "note": "marketingskills splits SEO into focused skills (<b>seo-audit</b>, <b>ai-seo</b>, <b>programmatic-seo</b>, <b>schema</b>, <b>site-architecture</b>). gstack's <b>seo</b> is one broad-strategy skill. Reach for a granular one for a specific task, gstack's for whole-funnel strategy."
+  },
+  {
+    "kind": "granular vs whole-journey",
+    "color": "var(--c-amber)",
+    "items": ["emails · cold-email · churn-prevention · onboarding", "lifecycle (gstack)"],
+    "sep": "vs",
+    "pick": "task-dependent",
+    "note": "These cover specific lifecycle phases; gstack's <b>lifecycle</b> is one whole-journey email playbook. Specific phase → use the focused skill; whole program → gstack's lifecycle."
+  },
+  {
+    "kind": "near-duplicate",
+    "color": "var(--c-orange)",
+    "items": ["pricing", "pricing-strategy (gstack)"],
+    "sep": "vs",
+    "pick": "pricing",
+    "note": "Overlapping domain, different names. Default to marketingskills <b>pricing</b> (packaging + monetization); gstack's <b>pricing-strategy</b> is the v1 analog."
+  }
+]
